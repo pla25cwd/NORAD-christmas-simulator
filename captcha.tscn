@@ -1,0 +1,517 @@
+[gd_scene load_steps=31 format=3 uid="uid://bxotmc1hv5cpn"]
+
+[ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="1_kg1qj"]
+[ext_resource type="Script" path="res://captcha.gd" id="1_pm0fl"]
+[ext_resource type="FontFile" uid="uid://dmvtpy4ce2b5w" path="res://menu/gamefont(1).ttf" id="2_x8mqy"]
+[ext_resource type="Texture2D" uid="uid://f5u8slnhv0q8" path="res://main/buymenu/borders/captcha/load.png" id="4_mnthm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmoog"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1u57"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvdwt"]
+bg_color = Color(0.301961, 0.705882, 0.909804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdrb8"]
+line_spacing = 0.0
+font = ExtResource("1_kg1qj")
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_37iat"]
+line_spacing = 0.0
+font = ExtResource("2_x8mqy")
+font_size = 12
+outline_size = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v6bx4"]
+load_path = "res://.godot/imported/captcha.png-7a0cd9f86a666cf62db7ed40bbaceee4.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6x4y"]
+atlas = SubResource("CompressedTexture2D_v6bx4")
+region = Rect2(2400, 100, 100, 100)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yo6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrk1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfq41"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf4mc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hihcj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n1v2n"]
+load_path = "res://.godot/imported/captcha.png-7a0cd9f86a666cf62db7ed40bbaceee4.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bafy1"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uywh"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j15t"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd845"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf8vw"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(305.735, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ql0"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstf5"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fvbc"]
+atlas = SubResource("CompressedTexture2D_n1v2n")
+region = Rect2(286.4, 0, 100, 100)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnq4h"]
+bg_color = Color(0.301961, 0.705882, 0.909804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ervb1"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_2nghe"]
+line_spacing = 0.0
+font = ExtResource("1_kg1qj")
+font_size = 17
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_fygf5"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20gql"]
+_data = {
+"new_animation": SubResource("Animation_fygf5")
+}
+
+[node name="captcha" type="Control"]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_pm0fl")
+
+[node name="bg" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 450.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kmoog")
+
+[node name="bg_c" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1u57")
+
+[node name="prompt" type="Panel" parent="bg_c"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvdwt")
+
+[node name="BoxContainer" type="BoxContainer" parent="bg_c/prompt"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 197.0
+offset_bottom = 72.0
+theme_override_constants/separation = 4
+vertical = true
+
+[node name="Label" type="Label" parent="bg_c/prompt/BoxContainer"]
+layout_mode = 2
+text = " select all images with"
+label_settings = SubResource("LabelSettings_xdrb8")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="bg_c/prompt/BoxContainer"]
+layout_mode = 2
+text = " the new™ 2010™ 
+Volkswagen™ Golf™ 
+TDI™ Diesel™"
+label_settings = SubResource("LabelSettings_37iat")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="images" type="GridContainer" parent="bg_c"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 78.0
+offset_right = 198.0
+offset_bottom = 256.0
+mouse_filter = 0
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 3
+
+[node name="0" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_s6x4y")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="1" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_bafy1")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="2" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_6uywh")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="3" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_6j15t")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="4" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_rd845")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="5" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_yf8vw")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="6" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_f6ql0")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="7" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_hstf5")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="8" type="TextureRect" parent="bg_c/images"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_1fvbc")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="bg_c/images/8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -29.0
+offset_right = 31.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yo6n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrk1s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rfq41")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sf4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hihcj")
+toggle_mode = true
+
+[node name="Submit" type="Button" parent="bg_c"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 262.0
+offset_right = 197.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_kg1qj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_rnq4h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rnq4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rnq4h")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rnq4h")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rnq4h")
+text = "Submit"
+
+[node name="Timer" type="Timer" parent="bg_c/Submit"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="bg_c/Submit"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Panel" type="Panel" parent="bg_c/Submit"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ervb1")
+
+[node name="Label" type="Label" parent="bg_c/Submit/Panel"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 35.0
+text = "FUCK off"
+label_settings = SubResource("LabelSettings_2nghe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="bg_c/Submit"]
+clip_contents = true
+layout_mode = 0
+offset_left = 153.0
+offset_right = 188.0
+offset_bottom = 35.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(17.5, 17.5)
+texture = ExtResource("4_mnthm")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg_c/Submit/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_20gql")
+}
+autoplay = "new_animation"
+speed_scale = 0.8
+
+[connection signal="mouse_entered" from="bg_c/Submit" to="." method="_on_submit_mouse_entered"]
+[connection signal="mouse_exited" from="bg_c/Submit" to="." method="_on_submit_mouse_exited"]
+[connection signal="pressed" from="bg_c/Submit" to="." method="_on_submit_pressed"]
+[connection signal="timeout" from="bg_c/Submit/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="bg_c/Submit/Timer2" to="." method="_on_timer_2_timeout"]

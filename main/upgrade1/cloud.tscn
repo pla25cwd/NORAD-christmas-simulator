@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdcmbi5qh1aua"]
+
+[ext_resource type="Texture2D" uid="uid://fvhfbbm2kvbc" path="res://main/crack!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1.png" id="1_4l5y8"]
+[ext_resource type="Texture2D" uid="uid://d1snyg2spvvij" path="res://main/upgrade1/cloud.png" id="1_fllay"]
+[ext_resource type="Script" path="res://main/upgrade1/cloud.gd" id="2_afw54"]
+[ext_resource type="FontFile" uid="uid://dmvtpy4ce2b5w" path="res://menu/gamefont(1).ttf" id="4_2ddhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b86r1"]
+size = Vector2(800, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rqkru"]
+font = ExtResource("4_2ddhq")
+
+[node name="cloud" type="Sprite2D"]
+position = Vector2(400, 303)
+texture = ExtResource("1_fllay")
+script = ExtResource("2_afw54")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_b86r1")
+target_position = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_4l5y8")
+region_filter_clip_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 358.0
+offset_top = -12.0
+offset_right = 398.0
+offset_bottom = 14.0
+text = "100"
+label_settings = SubResource("LabelSettings_rqkru")
+horizontal_alignment = 2
+vertical_alignment = 1

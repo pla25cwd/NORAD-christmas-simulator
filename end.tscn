@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3a082jvomgxr"]
+
+[ext_resource type="Script" path="res://end.gd" id="1_ofvw8"]
+[ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="1_wsqp1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax5pu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_acmru"]
+font = ExtResource("1_wsqp1")
+font_size = 30
+shadow_offset = Vector2(0, 0)
+
+[node name="end" type="Label"]
+offset_right = 800.0
+offset_bottom = 450.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ax5pu")
+text = "you successfully failed to win!
+
+detonating intel ME ied in 
+long ass float
+
+"
+label_settings = SubResource("LabelSettings_acmru")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_ofvw8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.105
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://duhh3w567pi14"]
+
+[ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="1_lb8j1"]
+
+[resource]
+base_font = ExtResource("1_lb8j1")
+variation_embolden = -2.0
+variation_transform = Transform2D(2, 0, 0, 1, 0, 0)

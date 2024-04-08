@@ -1,0 +1,20 @@
+[gd_resource type="StyleBoxTexture" load_steps=4 format=3 uid="uid://b45c3q6myyq1g"]
+
+[sub_resource type="Gradient" id="Gradient_dpa0e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.299625, 0.588015, 0.805243, 0.985019)
+colors = PackedColorArray(0, 0, 0, 1, 0.305882, 0.658824, 0.0352941, 1, 0.513726, 0.513726, 0.513726, 1, 0.576471, 0.576471, 0.290196, 1, 0, 0.501961, 0.501961, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q527b"]
+seed = -859182079
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_youfu"]
+width = 250
+height = 100
+color_ramp = SubResource("Gradient_dpa0e")
+noise = SubResource("FastNoiseLite_q527b")
+
+[resource]
+resource_name = "sb"
+texture = SubResource("NoiseTexture2D_youfu")

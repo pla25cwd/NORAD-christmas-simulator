@@ -1,0 +1,229 @@
+[gd_scene load_steps=25 format=3 uid="uid://bdwyeungechdc"]
+
+[ext_resource type="Script" path="res://init.gd" id="1_pso1t"]
+[ext_resource type="Texture2D" uid="uid://dnfpy7c7yc86i" path="res://menu/bg.jpg" id="3_4w44q"]
+[ext_resource type="Texture2D" uid="uid://4i0oqywnnny4" path="res://menu/button1.jpg" id="3_rkmyn"]
+[ext_resource type="Texture2D" uid="uid://dibooxgn6v6wo" path="res://menu/Untitled.png" id="4_vjt33"]
+[ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="5_e5ebg"]
+[ext_resource type="VideoStream" path="res://menu/splash_c.ogv" id="7_6v6am"]
+[ext_resource type="VideoStream" path="res://menu/credits.ogv" id="7_boaj0"]
+[ext_resource type="Script" path="res://garbagemode.gd" id="7_ekusv"]
+[ext_resource type="Texture2D" uid="uid://u8li6jnb1hmh" path="res://menu/button2.png" id="9_4lr4s"]
+[ext_resource type="Theme" uid="uid://d4nui6ij2exru" path="res://main/buymenu/tt.tres" id="10_32i33"]
+[ext_resource type="Texture2D" uid="uid://gkwhbujqm3s2" path="res://menu/button3.png" id="10_kqxhu"]
+[ext_resource type="Texture2D" uid="uid://cbxhu7soidn5j" path="res://menu/check1.png" id="11_1ydd7"]
+[ext_resource type="Texture2D" uid="uid://0suvhs4icowx" path="res://menu/button4.png" id="11_6aqfi"]
+[ext_resource type="Texture2D" uid="uid://cmhjrxsuytofk" path="res://menu/check0.png" id="11_m6xyg"]
+[ext_resource type="Texture2D" uid="uid://cv5gwh7i4daip" path="res://menu/check2.png" id="13_wmfmo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ephgr"]
+texture = ExtResource("3_rkmyn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jgs0"]
+texture = ExtResource("3_rkmyn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w56xu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alsxn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnl0a"]
+texture = ExtResource("4_vjt33")
+expand_margin_left = 11.0
+expand_margin_top = 19.0
+expand_margin_right = 13.0
+expand_margin_bottom = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd7ed"]
+atlas = ExtResource("11_m6xyg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m6xb"]
+atlas = ExtResource("11_1ydd7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbeqe"]
+atlas = ExtResource("13_wmfmo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgmxc"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_pso1t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 450.0
+texture = ExtResource("3_4w44q")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 283.0
+offset_top = 160.0
+offset_right = 491.0
+offset_bottom = 268.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxTexture_ephgr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7jgs0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w56xu")
+action_mode = 0
+
+[node name="Button2" type="Button" parent="."]
+clip_contents = true
+offset_left = 351.0
+offset_top = 336.0
+offset_right = 415.0
+offset_bottom = 386.0
+theme_override_colors/font_color = Color(0.952941, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e5ebg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_alsxn")
+action_mode = 0
+text = "credits"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 752.0
+offset_top = 5.0
+offset_right = 792.0
+offset_bottom = 45.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wnl0a")
+
+[node name="LinkButton" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+uri = "http://www.vkd.tj/"
+
+[node name="garbagemode" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 623.0
+offset_top = 365.0
+offset_right = 763.0
+offset_bottom = 425.0
+pivot_offset = Vector2(70, 30)
+theme = ExtResource("10_32i33")
+script = ExtResource("7_ekusv")
+
+[node name="TextureRect" type="TextureRect" parent="garbagemode"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_nd7ed")
+
+[node name="TextureRect2" type="TextureRect" parent="garbagemode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_4lr4s")
+
+[node name="Button" type="Button" parent="garbagemode"]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 60.0
+tooltip_text = "using patented (US8246454B2) EA™ Microsoft™ MKUltra™ Technology™, the 'esports gaming high-
+difficulty esports precision gamering elite options™' somehow make this \"\"\"game\"\"\" even less fun. wow!™"
+focus_mode = 0
+theme = ExtResource("10_32i33")
+toggle_mode = true
+action_mode = 0
+flat = true
+
+[node name="BoxContainer" type="BoxContainer" parent="garbagemode"]
+layout_mode = 0
+offset_left = -607.0
+offset_top = -349.0
+offset_right = -467.0
+offset_bottom = 69.0
+theme_override_constants/separation = 3
+vertical = true
+
+[node name="precision" type="TextureButton" parent="garbagemode/BoxContainer"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("10_kqxhu")
+
+[node name="TextureRect" type="TextureRect" parent="garbagemode/BoxContainer/precision"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_7m6xb")
+
+[node name="heat" type="TextureButton" parent="garbagemode/BoxContainer"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("11_6aqfi")
+
+[node name="TextureRect" type="TextureRect" parent="garbagemode/BoxContainer/heat"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_nbeqe")
+
+[node name="Marker2D" type="Marker2D" parent="garbagemode"]
+position = Vector2(70, -108)
+scale = Vector2(0.7, 0.7)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_e5ebg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_cgmxc")
+text = "you Are john \"shitfuck\" Johnson, Algerian multi-quintillionaire.
+
+On christmas Day 2013, santer Klause™ gave you several Tons of coal Instead of the Lebanese island you put On your wishlist (among Other things)
+
+deciding To get your revenge, you sold the coal and purchased a 
+JSC Konstruktorskoe Buro Priborostroeniya ZU-23-2 (GRAU 2A13) autocannon
+to shoot that fat Red asshole Out of The sky. 
+
+Press CTRL SHIFT ALT \\   to continue."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 60.0
+autostart = true
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_right = 800.0
+offset_bottom = 450.0
+stream = ExtResource("7_boaj0")
+volume_db = 24.0
+expand = true
+
+[node name="VideoStreamPlayer3" type="VideoStreamPlayer" parent="."]
+offset_right = 800.0
+offset_bottom = 450.0
+stream = ExtResource("7_6v6am")
+autoplay = true
+expand = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/LinkButton" to="." method="_on_link_button_pressed"]
+[connection signal="pressed" from="garbagemode/Button" to="garbagemode" method="_on_button_pressed"]
+[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="VideoStreamPlayer2" to="." method="_on_video_stream_player_2_finished"]
+[connection signal="finished" from="VideoStreamPlayer3" to="." method="_on_video_stream_player_3_finished"]
