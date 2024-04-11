@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="norad web port"
+config/name="NORAD christmas simulator 2013 remasterd 4k true definitive edition no virus free download 2015"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)

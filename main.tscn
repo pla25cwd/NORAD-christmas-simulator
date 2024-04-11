@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bff50s720byh4"]
+[gd_scene load_steps=126 format=3 uid="uid://bff50s720byh4"]
 
 [ext_resource type="Texture2D" uid="uid://dq045gm0fdk5j" path="res://menu/bg_main.jpg" id="1_f0tcv"]
 [ext_resource type="Script" path="res://main/player/player.gd" id="2_h4hjb"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://c4apedy1dbvx1" path="res://main/buymenu/borders/captcha/Untitled.png" id="25_rdr54"]
 [ext_resource type="AudioStream" uid="uid://detnqx16ghnj6" path="res://main/sounds/hiss.wav" id="33_f18w2"]
 [ext_resource type="Texture2D" uid="uid://dibooxgn6v6wo" path="res://menu/Untitled.png" id="33_vb7s3"]
+[ext_resource type="Script" path="res://main/quitanim.gd" id="38_3rhpe"]
 
 [sub_resource type="Animation" id="Animation_jrcwd"]
 resource_name = "new_animation"
@@ -1166,6 +1167,53 @@ expand_margin_top = 19.0
 expand_margin_right = 13.0
 expand_margin_bottom = 13.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3aad"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_nr1oe"]
+variation_embolden = 2.0
+variation_transform = Transform2D(1.22, -0.115, -0.24, 1.165, 0.405, 0.16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_djlqk"]
+line_spacing = 0.0
+font = SubResource("FontVariation_nr1oe")
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_lkqot"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font:variation_embolden")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.0, -2.0, 2.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2435),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"new_speed"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djki7"]
+_data = {
+"new_animation": SubResource("Animation_lkqot")
+}
+
 [node name="main" type="Node2D"]
 
 [node name="bg" type="Sprite2D" parent="."]
@@ -1710,6 +1758,10 @@ libraries = {
 [node name="heat_timer" type="Timer" parent="player"]
 autostart = true
 
+[node name="Timer2" type="Timer" parent="player"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Button2" type="Button" parent="."]
 offset_left = 463.0
 offset_top = 393.0
@@ -1752,6 +1804,43 @@ offset_bottom = 40.0
 uri = "http://www.vkd.tj/"
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="Panel/LinkButton"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 218.0
+offset_top = 147.0
+offset_right = 568.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v3aad")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit button doesnt work in the web version, but i highly recommend doing it manually as soon as possible"
+label_settings = SubResource("LabelSettings_djlqk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel2/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_djki7")
+}
+autoplay = "new_animation"
+script = ExtResource("38_3rhpe")
+
 [connection signal="pressed" from="ui/Button/menu/upgrade2" to="ui/Button/menu/upgrade2" method="_on_pressed"]
 [connection signal="pressed" from="ui/Button/menu/upgrade0" to="ui/Button/menu/upgrade0" method="_on_pressed"]
 [connection signal="pressed" from="ui/Button/menu/upgrade1" to="ui/Button/menu/upgrade1" method="_on_pressed"]
@@ -1770,3 +1859,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="player/heat_timer" to="player" method="_on_heat_timer_timeout"]
 [connection signal="pressed" from="Button2" to="ui" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Panel/LinkButton" to="player" method="_on_link_button_pressed"]
+[connection signal="timeout" from="Panel/LinkButton/Timer" to="player" method="_on_timer_timeout"]

@@ -30,8 +30,13 @@ func _physics_process(_delta):
 		$gun/Sprite2D.modulate = Color(1, 1, 1, remap($Timer.wait_time, 0.25, 0.5, 0, 1))
 		$gun/barrel_point/AudioStreamPlayer2D.pitch_scale = remap($Timer.wait_time, 0.25, 0.5, target_pitch, target_pitch - 0.5)
 		
-	if get_viewport().get_mouse_position().y < 350 	 and !$"../ui/Button".is_pressed() and gv.disable_mouse == false:
-		$gun.look_at(get_viewport().get_mouse_position())
+	if get_viewport().get_mouse_position().y < 350 and !$"../ui/Button".is_pressed() and gv.disable_mouse == false:
+		if Engine.time_scale == 1:
+			$gun.look_at(get_viewport().get_mouse_position())
+		else:
+			if $Timer2.time_left == 0:
+				$gun.look_at(get_viewport().get_mouse_position())
+				$Timer2.start()
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and $Timer.time_left == 0:
 			if gv.garbagemode[1]:
 				fire()
@@ -43,6 +48,8 @@ func _physics_process(_delta):
 			$gun/barrel_point/AudioStreamPlayer2D.stream_paused = false
 		if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			$gun/barrel_point/AudioStreamPlayer2D.stream_paused = true
+	else:
+		$gun/barrel_point/AudioStreamPlayer2D.stream_paused = true
 
 	gv.health = clampi(gv.health, 0, 100)
 	if gv.health == 0:
@@ -71,8 +78,12 @@ func _on_heat_timer_timeout():
 		heat = clampi(heat - 5, 0, heat_capacity)
 
 func _on_link_button_pressed():
-	JavaScriptBridge.eval("close();")
+	get_node("../Panel2").show()
+	get_node("../Panel/LinkButton/Timer").start()
 
 func _on_hiss_finished():
 	$gun/barrel_point/hiss.stream = preload("res://main/sounds/hiss.wav")
 	$gun/barrel_point/hiss.play()
+
+func _on_timer_timeout():
+	get_node("../Panel2").hide()

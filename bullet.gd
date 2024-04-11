@@ -34,7 +34,7 @@ func _physics_process(_delta):
 						$AnimationPlayer.play("hit_r")
 					else:
 						$AnimationPlayer.play("hit")
-		move_local_y(movement_speed)
+		move_local_y(movement_speed * Engine.time_scale)
 
 func _on_timer_timeout():
 	$AnimationPlayer.play("hit")
