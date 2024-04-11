@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="horrible game"
+config/name="norad web port"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
@@ -362,4 +362,5 @@ debug={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 camera/depth_of_field/depth_of_field_bokeh_quality=0

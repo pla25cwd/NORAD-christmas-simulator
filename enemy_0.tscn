@@ -647,10 +647,10 @@ position = Vector2(-1000, -1000)
 script = ExtResource("1_wufws")
 
 [node name="y" type="AnimationPlayer" parent="."]
-autoplay = "AnimationY"
 libraries = {
 "": SubResource("AnimationLibrary_74aei")
 }
+autoplay = "AnimationY"
 blend_times = [&"AnimationY", &"AnimationY", 1.0]
 
 [node name="x" type="AnimationPlayer" parent="."]
@@ -674,20 +674,20 @@ shape = SubResource("RectangleShape2D_3idax")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "reset"
 libraries = {
 "": SubResource("AnimationLibrary_rmf6c")
 }
+autoplay = "reset"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-autoplay = "reset"
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_0ptab")
 }
+autoplay = "reset"
+speed_scale = 0.5
 
 [node name="ec1_timer" type="Timer" parent="."]
 wait_time = 0.1
