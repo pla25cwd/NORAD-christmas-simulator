@@ -172,7 +172,6 @@ position = Vector2(70, -108)
 scale = Vector2(0.7, 0.7)
 
 [node name="Label" type="Label" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -190,20 +189,16 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_cgmxc")
 text = "you Are john \"shitfuck\" Johnson, Algerian multi-quintillionaire.
 
-On christmas Day 2013, santer Klause™ gave you several Tons of coal Instead of the Lebanese island you put On your wishlist (among Other things)
+On christmas Day 2013, santer Klause gave you several Tons of coal Instead of the Lebanese island you put On your wishlist (among Other things)
 
 deciding To get your revenge, you sold the coal and purchased a 
 JSC Konstruktorskoe Buro Priborostroeniya ZU-23-2 (GRAU 2A13) autocannon
 to shoot that fat Red asshole Out of The sky. 
 
-Press CTRL SHIFT ALT \\   to continue."
+Press LMB to continue."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="Timer" type="Timer" parent="Label"]
-wait_time = 60.0
-autostart = true
 
 [node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="."]
 visible = false
@@ -224,6 +219,5 @@ expand = true
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Panel/LinkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="garbagemode/Button" to="garbagemode" method="_on_button_pressed"]
-[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="VideoStreamPlayer2" to="." method="_on_video_stream_player_2_finished"]
 [connection signal="finished" from="VideoStreamPlayer3" to="." method="_on_video_stream_player_3_finished"]

@@ -6,9 +6,6 @@ var heat = 0
 var heat_capacity = 100
 @export var target_pitch = 0.8
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-
 func _physics_process(_delta):
 	if gv.weapon_state != tw:
 		match gv.weapon_state:
@@ -74,7 +71,7 @@ func _on_heat_timer_timeout():
 		heat = clampi(heat - 5, 0, heat_capacity)
 
 func _on_link_button_pressed():
-	get_tree().quit()
+	JavaScriptBridge.eval("close();")
 
 func _on_hiss_finished():
 	$gun/barrel_point/hiss.stream = preload("res://main/sounds/hiss.wav")
