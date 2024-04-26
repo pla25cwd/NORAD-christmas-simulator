@@ -1,26 +1,12 @@
 extends Sprite2D
 
 var aim_position = Vector2.ZERO
-var tw = -1
 var heat = 0
 var heat_capacity = 100
 @export var target_pitch = 0.8
+var damage = 25
 
 func _physics_process(_delta):
-	if gv.weapon_state != tw:
-		match gv.weapon_state:
-			0:
-				$pcc.play("0")
-				tw = 0
-				heat_capacity = 100
-			1:
-				$pcc.play("1")
-				tw = 1
-				heat_capacity = 500
-			2:
-				$pcc.play("2")
-				tw = 2
-				heat_capacity = 1000
 	$gun/barrel_point/AudioStreamPlayer2D.pitch_scale = target_pitch
 
 	if gv.garbagemode[1]:
@@ -87,3 +73,15 @@ func _on_hiss_finished():
 
 func _on_timer_timeout():
 	get_node("../Panel2").hide()
+
+func _on_ui_weapon_state_changed():
+	match gv.weapon_state:
+		0:
+			$pcc.play("0")
+			heat_capacity = 100
+		1:
+			$pcc.play("1")
+			heat_capacity = 500
+		2:
+			$pcc.play("2")
+			heat_capacity = 1000

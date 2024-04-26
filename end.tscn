@@ -1,40 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3a082jvomgxr"]
+[gd_scene load_steps=3 format=3 uid="uid://c3a082jvomgxr"]
 
 [ext_resource type="Script" path="res://end.gd" id="1_ofvw8"]
-[ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="1_wsqp1"]
+[ext_resource type="Script" path="res://Label2.gd" id="2_xcqaq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax5pu"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_acmru"]
-font = ExtResource("1_wsqp1")
-font_size = 30
-shadow_offset = Vector2(0, 0)
-
-[node name="end" type="Label"]
+[node name="end" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 450.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ax5pu")
-text = "you successfully failed to win!
-
-detonating intel ME ied in 
-long ass float
-
-"
-label_settings = SubResource("LabelSettings_acmru")
-horizontal_alignment = 1
-vertical_alignment = 1
 script = ExtResource("1_ofvw8")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b]punktkkete: [/b]
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 0.105
-one_shot = true
-autostart = true
+[color=red][font_size=30]EMAIL AN noreply@oil-drilling.gringpartei.ch FÜR EIN GRATIS GESCHENK IM WERT VON 400'000 FRANKEN!!! :) [/font_size][/color]
+[font_size=10](nur erhältlich bei +50'000 pünkte und einer spende von 500'00 franken oder mehr)[/font_size]"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 1.0
+offset_right = 329.0
+offset_bottom = 30.0
+script = ExtResource("2_xcqaq")

@@ -1,12 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://cknqeae7bduye"]
 
 [ext_resource type="Script" path="res://enemy_0.gd" id="1_wufws"]
-[ext_resource type="Texture2D" uid="uid://dtjr7qs7pj7wf" path="res://main/sheet_enemy_0.png" id="2_8wf3l"]
+[ext_resource type="Texture2D" uid="uid://d0axjrlgukuo4" path="res://main/sheet_enemy_4.png" id="2_b850d"]
 [ext_resource type="Texture2D" uid="uid://dtfoalhr3a5yn" path="res://main/crack!!!!!!!!!!!!!!!!!!!!!!!!!!!!!.png" id="3_chha7"]
 [ext_resource type="AudioStream" uid="uid://0p75pdtt26vo" path="res://main/sounds/freeze.wav" id="4_dh8vk"]
+[ext_resource type="Shape2D" uid="uid://d0clm8p0qtvxj" path="res://main/enemy_colliders/4.tres" id="4_vva04"]
 [ext_resource type="AudioStream" uid="uid://caeglhm208blp" path="res://main/sounds/freeze_crack.wav" id="5_ejs4g"]
 
-[sub_resource type="Animation" id="Animation_m7ins"]
+[sub_resource type="Animation" id="Animation_7bwt6"]
 resource_name = "anim_left"
 loop_mode = 2
 tracks/0/type = "value"
@@ -24,10 +25,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74aei"]
 _data = {
-"AnimationY": SubResource("Animation_m7ins")
+"AnimationY": SubResource("Animation_7bwt6")
 }
 
-[sub_resource type="Animation" id="Animation_d6gbk"]
+[sub_resource type="Animation" id="Animation_bks4v"]
 resource_name = "x"
 length = 8.0
 loop_mode = 2
@@ -80,11 +81,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rcmwc"]
 _data = {
-"x": SubResource("Animation_d6gbk")
+"x": SubResource("Animation_bks4v")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3idax"]
-size = Vector2(100.365, 76.765)
 
 [sub_resource type="Animation" id="Animation_x56jr"]
 resource_name = "death"
@@ -114,31 +112,31 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": ["corpse"],
 "method": &"sound"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ql64w"]
@@ -325,25 +323,25 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"times": PackedFloat32Array(0, 1, 2, 3, 3.99, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [],
-"method": &"hit_no_anim"
+"args": [30, false],
+"method": &"enemy_hit"
 }, {
-"args": [],
-"method": &"hit_no_anim"
+"args": [30, false],
+"method": &"enemy_hit"
 }, {
-"args": [],
-"method": &"hit_no_anim"
+"args": [30, false],
+"method": &"enemy_hit"
 }, {
-"args": [],
-"method": &"hit_no_anim"
+"args": [30, false],
+"method": &"enemy_hit"
 }, {
-"args": [],
-"method": &"hit_no_anim"
+"args": [30, false],
+"method": &"enemy_hit"
 }, {
-"args": [],
+"args": [30, false],
 "method": &"enemy_hit"
 }]
 }
@@ -642,9 +640,10 @@ _data = {
 "reset": SubResource("Animation_3khw1")
 }
 
-[node name="StaticBody2D" type="StaticBody2D" groups=["enemies", "freezable"]]
-position = Vector2(-1000, -1000)
+[node name="StaticBody2D" type="StaticBody2D" groups=["enemies"]]
+position = Vector2(-50, 98.8985)
 script = ExtResource("1_wufws")
+can_fire = false
 
 [node name="y" type="AnimationPlayer" parent="."]
 libraries = {
@@ -659,18 +658,20 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_8wf3l")
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-50, 50)
+texture = ExtResource("2_b850d")
 flip_h = true
 hframes = 3
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 2)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_chha7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3idax")
+position = Vector2(-50, 50)
+shape = ExtResource("4_vva04")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

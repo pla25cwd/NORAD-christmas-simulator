@@ -4,7 +4,6 @@ var key_enabled = false
 
 func _ready():
 	$Label.hide()
-	$Panel2.hide()
 	$VideoStreamPlayer2.hide()
 
 func _on_button_pressed():
@@ -18,10 +17,6 @@ func _physics_process(_delta):
 		if !key_enabled:
 			key_enabled = true
 
-func _on_link_button_pressed():
-	$Panel2.show()
-	$Panel/LinkButton/Timer.start()
-
 func _on_video_stream_player_2_finished():
 	Engine.time_scale = [0.5, 0.25, 2, 5].pick_random()
 	$VideoStreamPlayer2.hide()
@@ -34,6 +29,3 @@ func _on_button_2_pressed():
 func _on_video_stream_player_3_finished():
 	$VideoStreamPlayer3.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-func _on_timer_timeout():
-	$Panel2.hide()

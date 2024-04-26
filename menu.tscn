@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdwyeungechdc"]
+[gd_scene load_steps=23 format=3 uid="uid://bdwyeungechdc"]
 
 [ext_resource type="Script" path="res://init.gd" id="1_pso1t"]
 [ext_resource type="Texture2D" uid="uid://dnfpy7c7yc86i" path="res://menu/bg.jpg" id="3_4w44q"]
 [ext_resource type="Texture2D" uid="uid://4i0oqywnnny4" path="res://menu/button1.jpg" id="3_rkmyn"]
-[ext_resource type="Texture2D" uid="uid://dibooxgn6v6wo" path="res://menu/Untitled.png" id="4_vjt33"]
 [ext_resource type="FontFile" uid="uid://b8hijrilcj2su" path="res://menu/MINGLIU.ttf" id="5_e5ebg"]
 [ext_resource type="VideoStream" path="res://menu/splash_c.ogv" id="7_6v6am"]
 [ext_resource type="VideoStream" path="res://menu/credits.ogv" id="7_boaj0"]
@@ -15,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://0suvhs4icowx" path="res://menu/button4.png" id="11_6aqfi"]
 [ext_resource type="Texture2D" uid="uid://cmhjrxsuytofk" path="res://menu/check0.png" id="11_m6xyg"]
 [ext_resource type="Texture2D" uid="uid://cv5gwh7i4daip" path="res://menu/check2.png" id="13_wmfmo"]
-[ext_resource type="Script" path="res://main/quitanim.gd" id="16_5vr8v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ephgr"]
 texture = ExtResource("3_rkmyn")
@@ -27,13 +25,6 @@ texture = ExtResource("3_rkmyn")
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alsxn"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnl0a"]
-texture = ExtResource("4_vjt33")
-expand_margin_left = 11.0
-expand_margin_top = 19.0
-expand_margin_right = 13.0
-expand_margin_bottom = 13.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nd7ed"]
 atlas = ExtResource("11_m6xyg")
@@ -49,53 +40,6 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgmxc"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t1y2"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_j6ica"]
-variation_embolden = -1.25708
-variation_transform = Transform2D(1.22, -0.115, -0.24, 1.165, 0.405, 0.16)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ntpei"]
-line_spacing = 0.0
-font = SubResource("FontVariation_j6ica")
-font_size = 20
-
-[sub_resource type="Animation" id="Animation_lkqot"]
-resource_name = "new_animation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font:variation_embolden")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [2.0, -2.0, 2.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2435),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"new_speed"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_djki7"]
-_data = {
-"new_animation": SubResource("Animation_lkqot")
-}
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_pso1t")
@@ -132,23 +76,6 @@ theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxEmpty_alsxn")
 action_mode = 0
 text = "credits"
-
-[node name="Panel" type="Panel" parent="."]
-offset_left = 752.0
-offset_top = 5.0
-offset_right = 792.0
-offset_bottom = 45.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_wnl0a")
-
-[node name="LinkButton" type="LinkButton" parent="Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-uri = "http://www.vkd.tj/"
-
-[node name="Timer" type="Timer" parent="Panel/LinkButton"]
-wait_time = 5.0
-one_shot = true
 
 [node name="garbagemode" type="Control" parent="."]
 layout_mode = 3
@@ -267,42 +194,8 @@ stream = ExtResource("7_6v6am")
 autoplay = true
 expand = true
 
-[node name="Panel2" type="Panel" parent="."]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 218.0
-offset_top = 147.0
-offset_right = 568.0
-offset_bottom = 264.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0t1y2")
-
-[node name="Label" type="Label" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "quit button doesnt work in the web version, but i highly recommend doing it manually as soon as possible"
-label_settings = SubResource("LabelSettings_ntpei")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel2/Label"]
-libraries = {
-"": SubResource("AnimationLibrary_djki7")
-}
-autoplay = "new_animation"
-script = ExtResource("16_5vr8v")
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Panel/LinkButton" to="." method="_on_link_button_pressed"]
-[connection signal="timeout" from="Panel/LinkButton/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="garbagemode/Button" to="garbagemode" method="_on_button_pressed"]
 [connection signal="finished" from="VideoStreamPlayer2" to="." method="_on_video_stream_player_2_finished"]
 [connection signal="finished" from="VideoStreamPlayer3" to="." method="_on_video_stream_player_3_finished"]

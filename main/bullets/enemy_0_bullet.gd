@@ -1,9 +1,9 @@
 extends StaticBody2D
 
-var bullet_type = gv.bullet_type
-var bullet_rotation = 0.1
-var bullet_speed = 2
-var damage = -10
+var bullet_type : int
+var bullet_rotation : float
+var bullet_speed : int
+var damage : int
 var texture_array = [preload("res://main/bullets/0b.png"), preload("res://main/bullets/1b.png"), preload("res://main/bullets/2b.png"), preload("res://main/bullets/3b.png")]
 
 func _ready():
@@ -35,9 +35,10 @@ func _physics_process(_delta):
 		translate(Vector2(bullet_speed, 0).rotated(rotation))
 		$Sprite2D.rotation += bullet_rotation
 
-func enemy_hit():
+func enemy_hit(damage : int, animation : bool):
 	$AnimationPlayer.play("hit")
 	gv.score += 5
+	gv.actual_score += 5
 	gv.kills += 0.5
 	
 func _on_timer_timeout():
@@ -46,13 +47,9 @@ func _on_timer_timeout():
 func bullet_hit():
 	gv.health += damage
 	$AnimationPlayer.play("hit")
-	
 
 func freeze_ray_0():
-	enemy_hit()
+	enemy_hit(0, false)
 	
 func freeze_ray_1():
-	enemy_hit()
-
-func nuke():
-	enemy_hit()
+	enemy_hit(0, false)

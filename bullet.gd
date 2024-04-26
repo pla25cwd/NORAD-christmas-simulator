@@ -1,6 +1,7 @@
 extends Node2D
 
 var movement_speed = -10
+var damage : int
 
 func _ready():
 	$Area2D.monitoring = true
@@ -10,16 +11,19 @@ func _ready():
 			movement_speed = -7.5
 			$Area2D/CollisionShape2D.shape.size = Vector2(5, 15)
 			global_rotation = global_rotation + randi_range(-100, 100)
+			damage = 25
 		1:
 			$Sprite2D.region_rect = Rect2(0, 20, 40, 20)
 			movement_speed = -10
 			$Area2D/CollisionShape2D.shape.size = Vector2(10, 20)
 			global_rotation = global_rotation + randi_range(-1, 1)
+			damage = 50
 		2:
 			$Sprite2D.region_rect = Rect2(0, 40, 40, 20)
 			movement_speed = -10
 			$Area2D/CollisionShape2D.shape.size = Vector2(25, 25)
 			global_rotation = global_rotation + randi_range(-25, 25)
+			damage = 500
 
 
 func _physics_process(_delta):
@@ -27,9 +31,10 @@ func _physics_process(_delta):
 		if $Area2D.has_overlapping_bodies():
 			for i in $Area2D.get_overlapping_bodies():
 				if i.is_in_group("enemies"):
-					i.enemy_hit()
+					i.enemy_hit(damage, true)
 					if gv.garbagemode[0]:
 						gv.score += 1
+						gv.actual_score += 1
 					if gv.weapon_state == 2:
 						$AnimationPlayer.play("hit_r")
 					else:
@@ -40,12 +45,13 @@ func _on_timer_timeout():
 	$AnimationPlayer.play("hit")
 	if gv.garbagemode[0]:
 		gv.score += -1
+		gv.actual_score += 1
 
 func _on_timer_2_timeout():
 	match gv.weapon_state:
 		0:
-			rotation = rotation + randf_range(-0.1, 0.1)
+			rotation += randf_range(-0.1, 0.1)
 		1:
-			rotation = rotation + randf_range(-0.05, 0.05)
+			rotation += randf_range(-0.05, 0.05)
 		2:
-			rotation = rotation + randf_range(-0.5, 0.5)
+			rotation += rotation + randf_range(-0.5, 0.5)

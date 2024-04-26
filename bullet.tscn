@@ -193,7 +193,7 @@ script = ExtResource("1_1g87o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(10, 10)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_win7p")
 hframes = 2
 region_enabled = true

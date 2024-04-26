@@ -44,4 +44,4 @@ func freeze_ray(damage):
 		get_tree().call_group("enemies", "freeze_ray_1")
 
 func nuke():
-	get_tree().call_group("enemies", "nuke")
+	get_tree().call_group("enemies", "enemy_hit", 1000, true) 

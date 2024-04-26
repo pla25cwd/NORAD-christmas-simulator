@@ -1,29 +1,44 @@
 extends Node2D
 
 var remaining_enemies = 30
-var targeting = [-1, Node]
+var possible_targets
+var current_target
+
+@onready var audio_sp = $AudioStreamPlayer2D
+@onready var label = $Label
+@onready var sprite = $Sprite2D
 
 func _physics_process(_delta):
-	if remaining_enemies <= 0:
-		self.queue_free()
-	
 	if gv.upgrade_state[1] == 0:
 		gv.upgrade_state[1] = 1
 		
+func _oswald_enemy_sort(a, b):
+	# If the two enemies are of the same tier, then sort by higher health, otherwise sort by higher enemy tier.
+	if a.enemy_choice == b.enemy_choice:
+		if a.health > b.health:
+			return true
+		else:
+			return false
+	else:
+		if a.enemy_choice > b.enemy_choice:
+			return true
+		else:
+			return false
+	
 func _on_timer_timeout():
-	remaining_enemies -= 1
-	$Label.text = str(remaining_enemies)
-	$ShapeCast2D.force_shapecast_update()
-	if $ShapeCast2D.is_colliding():
-		targeting = [-1, $ShapeCast2D]
-		for i in $ShapeCast2D.get_collision_count():
-			if $ShapeCast2D.get_collider(i).is_in_group("freezable"):
-				if $ShapeCast2D.get_collider(i).enemy_choice > targeting[0]:
-					targeting[0] = $ShapeCast2D.get_collider(i).enemy_choice
-					targeting[1] = $ShapeCast2D.get_collider(i)
+	if remaining_enemies <= 0:
+		queue_free()
+	
+	# get target enemy
+	possible_targets = get_tree().get_nodes_in_group("enemies")
+	if possible_targets.size() > 0:
+		possible_targets.sort_custom(_oswald_enemy_sort)
+		current_target = possible_targets[0]
 		
-		$Sprite2D.look_at(targeting[1].position)
-		$AudioStreamPlayer2D.play()
-		
-		if targeting[1] != $ShapeCast2D and targeting[1].enemy_choice != 4:
-			targeting[1].nuke()
+		# "fire"
+		sprite.look_at(current_target.position)
+		audio_sp.play()
+		current_target.enemy_hit(1000, true)
+	
+		remaining_enemies -= 1
+		label.text = str(remaining_enemies)

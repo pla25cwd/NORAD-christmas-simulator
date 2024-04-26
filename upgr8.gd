@@ -24,11 +24,11 @@ func _on_button_pressed():
 	gv.disable_mouse = true
 	$Panel2.visible = true
 	
-	if gv.score >= 100000:
+	if gv.score >= 25000:
 		$Panel2/Panel/Panel/nuh.visible = true
 		$Panel2/Panel/Panel/fuckhead.visible = false
 		$Panel2/Panel/Panel/yep.visible = true
-	elif gv.score <= 100000:
+	elif gv.score <= 25000:
 		$Panel2/Panel/Panel/nuh.visible = false
 		$Panel2/Panel/Panel/fuckhead.visible = true
 		$Panel2/Panel/Panel/yep.visible = false
@@ -44,6 +44,7 @@ func _on_nuh_pressed():
 
 func _on_yep_pressed():
 	panel2 = false
-	if gv.score >= 100000:
+	if gv.score >= 25000:
 		$Panel2.queue_free()
 		self.add_child(preload("res://captcha.tscn").instantiate())
+		gv.score -= 25000

@@ -1,24 +1,28 @@
 extends Sprite2D
 
-var remaining_enemies = 0
+var remaining_enemies : int = 100
+var shapecast : ShapeCast2D
+var cracks : Sprite2D
+var label : Label
 
 func _ready():
-	remaining_enemies = 0
+	remaining_enemies = 100
+	shapecast = $ShapeCast2D
+	cracks = $Sprite2D
+	label = $Label
 
 func _physics_process(_delta):
-	$Label.text = str(remap(remaining_enemies, 0, 100, 100, 0))
+	label.text = str(remaining_enemies)
+	cracks.modulate = Color(1, 1, 1, (remap(remaining_enemies, 0, 100, 100, 0)) * 0.01)
 	
-	$Sprite2D.modulate = Color(1, 1, 1, remaining_enemies * 0.01)
-	
-	if remaining_enemies >= 100:
+	if remaining_enemies <= 0:
 		self.queue_free()
 
 	if gv.upgrade_state[1] == 2:
 		gv.upgrade_state[1] = 3
 		
-	if $ShapeCast2D.is_colliding() and $Timer.time_left == 0:
-		for i in $ShapeCast2D.get_collision_count():
-			if $ShapeCast2D.get_collider(i).is_in_group("enemies"):
-				$ShapeCast2D.get_collider(i).enemy_hit()
-				remaining_enemies += 1
-				$Timer.start()
+	if shapecast.is_colliding():
+		for i in shapecast.get_collision_count():
+			if shapecast.get_collider(i).is_in_group("enemies"):
+				shapecast.get_collider(i).enemy_hit()
+				remaining_enemies -= 1
