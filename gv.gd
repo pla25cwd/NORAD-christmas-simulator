@@ -14,7 +14,6 @@ var hat = false
 var attack_sum = false
 var garbagemode = [false, false]
 var shitfuck_captcha = 0
-var esports_menu_enabled_fuck = false
 var enable_debug_menu = true
 
 var debug_td = 0
